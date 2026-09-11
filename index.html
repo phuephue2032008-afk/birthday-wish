@@ -13,6 +13,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 html, body {
     margin: 0;
     padding: 0;
@@ -38,7 +42,14 @@ body {
     text-align: center;
 }
 
-.page.active {
+/* Show selected page */
+.page:target {
+    display: flex;
+    animation: fadeIn 0.7s ease;
+}
+
+/* Show first page when no target */
+body:not(:has(.page:target)) .page:first-of-type {
     display: flex;
     animation: fadeIn 0.7s ease;
 }
@@ -105,7 +116,8 @@ body {
 }
 
 /* BUTTON */
-button {
+.btn {
+    display: inline-block;
     border: none;
     outline: none;
     background: linear-gradient(135deg, #e98aa7, #d96f91);
@@ -118,10 +130,11 @@ button {
     box-shadow: 0 7px 18px rgba(210,100,130,0.25);
     transition: 0.25s;
     margin-top: 28px;
+    text-decoration: none;
     -webkit-tap-highlight-color: transparent;
 }
 
-button:active {
+.btn:active {
     transform: scale(0.94);
 }
 
@@ -205,7 +218,7 @@ button:active {
         font-size: 18px;
     }
 
-    button {
+    .btn {
         padding: 12px 24px;
     }
 }
@@ -214,11 +227,12 @@ button:active {
 
 <body>
 
+
 <!-- =========================
      OPENING
 ========================= -->
 
-<section class="page active">
+<section class="page" id="start">
     <div class="card opening">
 
         <div class="heart">💗</div>
@@ -231,19 +245,19 @@ button:active {
             Take a moment to read all the little wishes from everyone 🥹🌷
         </p>
 
-        <button onclick="nextPage()">
+        <a class="btn" href="#page1">
             Tap to continue ♡
-        </button>
+        </a>
 
     </div>
 </section>
 
 
 <!-- =========================
-     1
+     1 — SAUNG HNIN PHYU
 ========================= -->
 
-<section class="page">
+<section class="page" id="page1">
     <div class="card">
 
         <div class="from">
@@ -262,17 +276,19 @@ Eaint လိုချင်တဲ့အရာတိုင်း ရရှိပ�
 
 Once again, Happy Birthday Eaint! 🎀🎂🤍</div>
 
-        <button onclick="nextPage()">Tap to continue ♡</button>
+        <a class="btn" href="#page2">
+            Tap to continue ♡
+        </a>
 
     </div>
 </section>
 
 
 <!-- =========================
-     2
+     2 — INO
 ========================= -->
 
-<section class="page">
+<section class="page" id="page2">
     <div class="card">
 
         <div class="from">
@@ -293,17 +309,19 @@ Once again, Happy Birthday Eaint! 🎀🎂🤍</div>
 
 / ပွန်ဆာပတ်ရည်းစား အီနို /</div>
 
-        <button onclick="nextPage()">Tap to continue ♡</button>
+        <a class="btn" href="#page3">
+            Tap to continue ♡
+        </a>
 
     </div>
 </section>
 
 
 <!-- =========================
-     3
+     3 — KHINYUYA NAING
 ========================= -->
 
-<section class="page">
+<section class="page" id="page3">
     <div class="card">
 
         <div class="from">
@@ -320,17 +338,19 @@ Once again, Happy Birthday Eaint! 🎀🎂🤍</div>
 
 Happy Birthday ပါ မမရေ 🫶🏻🎉</div>
 
-        <button onclick="nextPage()">Tap to continue ♡</button>
+        <a class="btn" href="#page4">
+            Tap to continue ♡
+        </a>
 
     </div>
 </section>
 
 
 <!-- =========================
-     4
+     4 — JUNE
 ========================= -->
 
-<section class="page">
+<section class="page" id="page4">
     <div class="card">
 
         <div class="from">
@@ -339,17 +359,19 @@ Happy Birthday ပါ မမရေ 🫶🏻🎉</div>
 
         <div class="wish">မမအိမ့်ကိုစစကားပြောဖြစ်စသိတာ‌တော့မကြာသေးဘူးမမအိမ့်ကို tataပုံအ‌ကြောင်းမေးရင်စသိပြီတော့ နောက်channel ကိုမှားထွက်မိလို့ banခံထိလို့ပြန်ဂျိုင်းလို့ရ‌အောင်ကူညီ‌ပေးတဲ့တွက်လဲကျေးဇူးများကြီးပါတယ် မမအိမ့်အကြောင်းဟိုလိုသေသေချာချာရယ်ရီးတော့မသိပေးမဲ့ လာမဲ့မွေးနေ့မှ ကိုယ်ထင်သလာလို အကုန်ဖြစ်လာပြီ လိုအပ်ဆန္ဓတွေလဲပြည့်ဝပြီ နောက်ဖြစ်လာမဲ့ကိစ္စကောင်းသည်ဖြစ်စေမကောင်းသည်ဖြစ်စေ ဖြစ်လာသမျှအရာအားလုံးကိုသေသေချာချာကိုင်တွယ်နိုင်ပြီ ကျန်းကျန်းမားမားချမ်းချမ်းသားသားနဲ့ဘဝကြီးကိုဖြတ်သန်းနိုင်ပါစေလို့ဆုမွန်ကောင်းတောင်းပေးလိုက်ပါတယ်🥹❤️</div>
 
-        <button onclick="nextPage()">Tap to continue ♡</button>
+        <a class="btn" href="#page5">
+            Tap to continue ♡
+        </a>
 
     </div>
 </section>
 
 
 <!-- =========================
-     5
+     5 — TAR
 ========================= -->
 
-<section class="page">
+<section class="page" id="page5">
     <div class="card">
 
         <div class="from">
@@ -372,17 +394,19 @@ Happy 19th Birthday ပါရှင် 🤍🎂
 
 အမွှေလေးနဲ့မြန်''ညားပါစေ ဆုတောင်းမပြည့်မာစိုးလို့နှစ်ခါပြန်ကိုတောင်းပေးတာနော် ဟီးးးးးအာဘွားပါရှင် မွေးနေ့မှာအများကြီးပျော်ရွှင်ရပါစေ 🤍💞</div>
 
-        <button onclick="nextPage()">Tap to continue ♡</button>
+        <a class="btn" href="#page6">
+            Tap to continue ♡
+        </a>
 
     </div>
 </section>
 
 
 <!-- =========================
-     6
+     6 — YOON
 ========================= -->
 
-<section class="page">
+<section class="page" id="page6">
     <div class="card">
 
         <div class="from">
@@ -397,17 +421,19 @@ Happy 19th Birthday ပါရှင် 🤍🎂
 
 Happy Birthday BL fan girl လေးရေ 🎉🎂🌷</div>
 
-        <button onclick="nextPage()">Tap to continue ♡</button>
+        <a class="btn" href="#page7">
+            Tap to continue ♡
+        </a>
 
     </div>
 </section>
 
 
 <!-- =========================
-     7
+     7 — YURI
 ========================= -->
 
-<section class="page">
+<section class="page" id="page7">
     <div class="card">
 
         <div class="from">
@@ -416,17 +442,19 @@ Happy Birthday BL fan girl လေးရေ 🎉🎂🌷</div>
 
         <div class="wish">🎉Happy birthdayပါမမအိမ့်ရေ🥳💯 ဒီမွေးနေ့ကစပြီးအမြဲတမ်းပျော်ရွှင်မှုတွေနဲ့ဘဲပြည့်နေပါစေနော်🍀 အမြဲတမ်းဂိမ်းတွေဆော့ပေး ဟာသတွေပြောပြီးပျော်အောင်ထားပေးတဲ့အတွက်လည်းကျေးဇူးပါရှင့်💐 ဒီထက်မကလည်းချစ်ဖို့ကောင်းနိုင်ပါ‌စေ🎀🧸 ရှေ့လျှောက်စိတ်ချမ်းသာကိုယ်ကျန်းမာပြီး သားတွေရဲ့updateတွေကိုအချိန်တွေအကြာကြီးလိုက်ပေးနိုင်ပါစေ😭🖤🤍 စိတ်ညစ်စရာတွေကင်းဝေးပြီးဘဝနဲ့ဆန္ဒတစ်ထပ်တည်းကျနိုင်ပါစေနော်💝💯 ကိုယ်တို့အားလုံးကမမအိမ့်ကိုအများကြီးချစ်ပါတယ်လို့🤭🫶🤍</div>
 
-        <button onclick="nextPage()">Tap to continue ♡</button>
+        <a class="btn" href="#page8">
+            Tap to continue ♡
+        </a>
 
     </div>
 </section>
 
 
 <!-- =========================
-     8
+     8 — RI
 ========================= -->
 
-<section class="page">
+<section class="page" id="page8">
     <div class="card">
 
         <div class="from">
@@ -437,17 +465,19 @@ Happy Birthday BL fan girl လေးရေ 🎉🎂🌷</div>
 
 ရည်းစားကိုသဝန်တိုတာလေးတေ လျော့ပေးပါ 😭😂</div>
 
-        <button onclick="nextPage()">Tap to continue ♡</button>
+        <a class="btn" href="#page9">
+            Tap to continue ♡
+        </a>
 
     </div>
 </section>
 
 
 <!-- =========================
-     9
+     9 — KIM
 ========================= -->
 
-<section class="page">
+<section class="page" id="page9">
     <div class="card">
 
         <div class="from">
@@ -456,17 +486,19 @@ Happy Birthday BL fan girl လေးရေ 🎉🎂🌷</div>
 
         <div class="wish">Happy Birthday ပါကြီးတော်။မွှေစိန်နဲ့အကြာကြီးဆက်ပြီးအတူရှိသွားနိုင်ပါစေ။PerthSantaနဲ့လည်းသွားတွေ့နိုင်ပါစေရှင့်။Gpကိုလဲအကြာကြီးဆက်runပေးပါအုံး🙂‍↔️🫶</div>
 
-        <button onclick="nextPage()">Tap to continue ♡</button>
+        <a class="btn" href="#page10">
+            Tap to continue ♡
+        </a>
 
     </div>
 </section>
 
 
 <!-- =========================
-     10
+     10 — JULIE
 ========================= -->
 
-<section class="page">
+<section class="page" id="page10">
     <div class="card">
 
         <div class="from">
@@ -475,21 +507,23 @@ Happy Birthday BL fan girl လေးရေ 🎉🎂🌷</div>
 
         <div class="wish">Happy Birthday Pr Ma"Eaint 🎉🎂
 
-19နှစ်ပြည့်မွေးနေ့မှစပြီး နောင်လာမဲ့နေ့ရက်တွေတိုင်းမှာ ပျော်ရွှင်ခြင်းတွေ ကျန်းမာခြင်းတွေ အောင်မြင်ခြင်းတွေနဲ့ပြည့်စုံပါစေနော်။မမအိမ့် စိတ်ကူးထားတဲ့ မျှော်လင့်ထားတဲ့ ရှေ့ဆက်လျှောက်လှမ်းမယ့် အိပ်မက်တွေ ရည်မှန်းချက်ပန်းတိုင်တွေ အားလုံးကိုလည်း ဘယ်လို အခက်အခဲမှမရှိဘဲ ချောချောမွေ့မွေ့နဲ့ အမြန်ဆုံး အကောင်အထည်ဖော်နိုင် အောင်မြင်ပါစေ။ဘယ်ချိန်ပဲဖြစ်ဖြစ်ကိုယ့်ဘေးမှာနွေးနွေးထွေးထွေးရှိပေးမဲ့သူတွေနဲ့ပဲတွေ့ဆုံပါစေ။ကိုယ့်ရဲ့Idolတွေနဲ့လဲအပြင်မှာတွေ့နိုင်ပါစေနော်။လူပင်ပန်းစိတ်ပင်ပန်းဖြစ်ရတဲ့ ရက်တွေကင်းဝေးပြီး စိတ်ချမ်းသာ ကိုယ်ကျန်းမာနဲ့ အိပ်မက်တွေကို စိတ်ကြိုက် အကောင်အထည်ဖော်နိုင်ပါစေနော်။မမအိမ့်နဲ့chထဲမှာသိတာဆိုပင်မဲ့မမအိမ့်ကတကယ်ခင်ဖို့ကောင်းတယ်သိလား မမအိမ့်တို့နဲ့စကားပြောရတာတကယ်ပျော်ဖို့ကောင်းတာနော် မမအိမ့်နေ့ရက်တိုင်းမှာပျော်ရွှင်ဖို့​မျှော်လင့်ပါတယ်နော် ကိုယ်တကယ်ချစ်ရမြတ်နိုးရတဲ့သူနဲ့လဲပေါင်းဖက်နိုင်ပါစေ​လို့ဆုတောင်းပေးလိုက်ပါတယ်နော်မမအိမ့်ရေ..💕✨ {HBD na jaa🍓}
+19နှစ်ပြည့်မွေးနေ့မှစပြီး နောင်လာမဲ့နေ့ရက်တွေတိုင်းမှာ ပျော်ရွှင်ခြင်းတွေ ကျန်းမာခြင်းတွေ အောင်မြင်ခြင်းတွေနဲ့ပြည့်စုံပါစေနော်။မမအိမ့် စိတ်ကူးထားတဲ့ မျှော်လင့်ထားတဲ့ ရှေ့ဆက်လျှောက်လှမ်းမယ့် အိပ်မက်တွေ ရည်မှန်းချက်ပန်းတိုင်တွေ အားလုံးကိုလည်း ဘယ်လို အခက်အခဲမှမရှိဘဲ ချောချောမွေ့မွေ့နဲ့ အမြန်ဆုံး အကောင်အထည်ဖော်နိုင် အောင်မြင်ပါစေ။ဘယ်ချိန်ပဲဖြစ်ဖြစ်ကိုယ့်ဘေးမှာနွေးနွေးထွေးထွေးရှိပေးမဲ့သူတွေနဲ့ပဲတွေ့ဆုံပါစေ။ကိုယ့်ရဲ့Idolတွေနဲ့လဲအပြင်မှာတွေ့နိုင်ပါစေနော်။လူပင်ပန်းစိတ်ပင်ပန်းဖြစ်ရတဲ့ ရက်တွေကင်းဝေးပြီး စိတ်ချမ်းသာ ကိုယ်ကျန်းမာနဲ့ အိပ်မက်တွေကို စိတ်ကြိုက် အကောင်အထည်ဖော်နိုင်ပါစေနော်။မမအိမ့်နဲ့chထဲမှာသိတာဆိုပင်မဲ့မမအိမ့်ကတကယ်ခင်ဖို့ကောင်းတယ်သိလား မမအိမ့်တို့နဲ့စကားပြောရတာတကယ်ပျော်ဖို့ကောင်းတာနော် မမအိမ့်နေ့ရက်တိုင်းမှာပျော်ရွှင်ဖို့​မျှော်လင့်ပါတယ်နော် ကိုယ်တကယ်ချစ်ရမြတ်နိုးရတဲ့သူနဲ့လဲပေါင်းဖက်နိုင်ပါစေ​လို့ဆုတောင်းပေးလိုက်ပါတယ်နော်မမအိမ့်ရေ..💕✨ {HBD na jaa🍓}
 
 From Julie..⋆𐙚₊˚⊹♡</div>
 
-        <button onclick="nextPage()">Tap to continue ♡</button>
+        <a class="btn" href="#page11">
+            Tap to continue ♡
+        </a>
 
     </div>
 </section>
 
 
 <!-- =========================
-     11
+     11 — XUE'ER
 ========================= -->
 
-<section class="page">
+<section class="page" id="page11">
     <div class="card">
 
         <div class="from">
@@ -502,17 +536,19 @@ From Julie..⋆𐙚₊˚⊹♡</div>
 
 "မမအမွှေစိန်နဲ့ညားရင် သမီးကိုဖိတ်ဖို့ မမေ့ကြပါနဲ့...😔✨"</div>
 
-        <button onclick="nextPage()">Tap to continue ♡</button>
+        <a class="btn" href="#page12">
+            Tap to continue ♡
+        </a>
 
     </div>
 </section>
 
 
 <!-- =========================
-     12
+     12 — EISANTY
 ========================= -->
 
-<section class="page">
+<section class="page" id="page12">
     <div class="card">
 
         <div class="from">
@@ -521,17 +557,19 @@ From Julie..⋆𐙚₊˚⊹♡</div>
 
         <div class="wish">ဟက်ဗီးဘတ်ဒေးပါနော်မင်အိမ့်🎂🎀ဒီနေ့ကျရောက်တဲ့မွေးနေ့ကစပြီးအရာအားလုံးးအဆင်ပြေပါစေနော် မင့်အိမ်လိုချင်တာမှန်သမျှလည်းမတောင်းတဘဲရပါစေနော်။ကိုယ်ချစ်တဲ့သူနဲ့လည်းအကြာကြီးချစ်နိုင်ပါစေနော် မွေးနေ့ကစပြီးမကောင်းတဲ့အရာမှန်သမျှကင်းဝေးပြီးကောင်းတဲ့လူတွေ ပတ်ဝန်းကျင်တွေနဲ့ဘဲ တွေ့ဆုံနိုင်ပါစေနော် မင့်အိမ်လုပ်ချင်တာမှန်သမျှလည်းလုပ်ခွင့်ရပါစေနော် ကလေးလေးတွေကိုလည်းအများကြီးsupportပေးနိုင်ပါစေလို့ ဆုတောင်းပေးလိုက်ပါတယ်နော်💓🫶🤟 သိခွင့်ရတာသိပ်မကြာသေး‌ပေမဲ့အများကြီးခင်ပါတယ်နော်</div>
 
-        <button onclick="nextPage()">Tap to continue ♡</button>
+        <a class="btn" href="#page13">
+            Tap to continue ♡
+        </a>
 
     </div>
 </section>
 
 
 <!-- =========================
-     13
+     13 — KYAL SIN
 ========================= -->
 
-<section class="page">
+<section class="page" id="page13">
     <div class="card">
 
         <div class="from">
@@ -553,17 +591,19 @@ Love you kha🌎🫶🏻
 
 #from little devil ❤️ 😈</div>
 
-        <button onclick="nextPage()">Tap to continue ♡</button>
+        <a class="btn" href="#final">
+            Tap to continue ♡
+        </a>
 
     </div>
 </section>
 
 
 <!-- =========================
-     FINAL
+     FINAL — POK SA
 ========================= -->
 
-<section class="page">
+<section class="page" id="final">
     <div class="card">
 
         <div class="heart">🤍</div>
@@ -572,7 +612,7 @@ Love you kha🌎🫶🏻
             From ပေါက်စ 🤍
         </div>
 
-        <div class="wish final">မမ 
+        <div class="wish final">မမ
 
 အာဘွား 
 
@@ -583,43 +623,10 @@ HBD again 🤍</div>
 
 
 <!-- =========================
-     JAVASCRIPT
+     FLOATING HEARTS
 ========================= -->
 
 <script>
-
-let currentPage = 0;
-
-const pages = document.querySelectorAll(".page");
-
-
-function nextPage() {
-
-    // လက်ရှိ page ကိုဖျောက်
-    pages[currentPage].classList.remove("active");
-
-    // နောက် page ကိုသွား
-    currentPage++;
-
-    // နောက်ဆုံး page ရောက်ပြီးရင် ဒီမှာပဲရပ်
-    if (currentPage >= pages.length) {
-        currentPage = pages.length - 1;
-    }
-
-    // နောက် page ကိုပြ
-    pages[currentPage].classList.add("active");
-
-    // စာမျက်နှာအပေါ်ဆုံးကိုပြန်တက်
-    window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: "smooth"
-    });
-}
-
-
-/* Floating hearts */
-
 const heartList = [
     "💗",
     "💖",
@@ -637,9 +644,7 @@ function createHeart() {
     heart.className = "floating";
 
     heart.innerText =
-        heartList[
-            Math.floor(Math.random() * heartList.length)
-        ];
+        heartList[Math.floor(Math.random() * heartList.length)];
 
     heart.style.left =
         Math.random() * 100 + "vw";
@@ -658,7 +663,6 @@ function createHeart() {
 }
 
 setInterval(createHeart, 900);
-
 </script>
 
 </body>
