@@ -13,48 +13,60 @@
     box-sizing: border-box;
 }
 
-body {
+html, body {
     margin: 0;
-    min-height: 100vh;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
     background: linear-gradient(135deg, #fff0f5, #fce4ec, #fff8fa);
     font-family: "Noto Sans Myanmar", "Kanit", sans-serif;
     color: #5b4650;
     overflow-x: hidden;
 }
 
+/* PAGE */
 .page {
     display: none;
+    width: 100%;
     min-height: 100vh;
-    padding: 35px 22px 45px;
+    padding: 35px 20px 50px;
     align-items: center;
     justify-content: center;
     text-align: center;
-    animation: fadeIn 0.7s ease;
 }
 
 .page.active {
     display: flex;
+    animation: fadeIn 0.7s ease;
 }
 
+/* CARD */
 .card {
     width: 100%;
     max-width: 650px;
     padding: 32px 24px;
-    background: rgba(255,255,255,0.72);
+    background: rgba(255,255,255,0.78);
     border: 1px solid rgba(255,255,255,0.9);
     border-radius: 28px;
     box-shadow: 0 15px 45px rgba(160,100,120,0.15);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
+/* OPENING */
 .opening h1 {
     font-size: 28px;
+    line-height: 1.5;
     margin-bottom: 15px;
 }
 
 .opening p {
     font-size: 16px;
-    margin-bottom: 35px;
+    line-height: 1.9;
+    margin-bottom: 30px;
 }
 
 .heart {
@@ -63,6 +75,7 @@ body {
     margin-bottom: 15px;
 }
 
+/* FROM */
 .from {
     font-family: "Kanit", sans-serif;
     font-size: 19px;
@@ -70,22 +83,31 @@ body {
     margin-bottom: 22px;
 }
 
+/* WISH */
 .wish {
     text-align: left;
     white-space: pre-line;
+    word-break: break-word;
     font-size: 15px;
     line-height: 2;
     color: #57434c;
 }
 
 .special {
-    font-family: "Kanit", sans-serif;
     text-align: center;
     line-height: 1.9;
 }
 
+.final {
+    text-align: center;
+    font-size: 18px;
+    line-height: 2.2;
+}
+
+/* BUTTON */
 button {
     border: none;
+    outline: none;
     background: linear-gradient(135deg, #e98aa7, #d96f91);
     color: white;
     padding: 13px 28px;
@@ -96,30 +118,32 @@ button {
     box-shadow: 0 7px 18px rgba(210,100,130,0.25);
     transition: 0.25s;
     margin-top: 28px;
+    -webkit-tap-highlight-color: transparent;
 }
 
 button:active {
     transform: scale(0.94);
 }
 
-.final {
-    font-size: 18px;
-    line-height: 2;
-}
-
+/* FLOATING HEARTS */
 .floating {
     position: fixed;
+    left: 0;
+    bottom: -30px;
     pointer-events: none;
+    z-index: 9999;
     animation: floatUp 6s linear forwards;
     font-size: 18px;
     opacity: 0.75;
 }
 
+/* ANIMATION */
 @keyframes fadeIn {
     from {
         opacity: 0;
         transform: translateY(15px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -130,6 +154,7 @@ button:active {
     0%,100% {
         transform: scale(1);
     }
+
     50% {
         transform: scale(1.15);
     }
@@ -140,12 +165,48 @@ button:active {
         transform: translateY(0);
         opacity: 0;
     }
+
     20% {
         opacity: 0.8;
     }
+
     to {
-        transform: translateY(-100vh);
+        transform: translateY(-110vh);
         opacity: 0;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+
+    .page {
+        padding: 25px 14px 40px;
+    }
+
+    .card {
+        padding: 27px 19px;
+        border-radius: 24px;
+    }
+
+    .opening h1 {
+        font-size: 24px;
+    }
+
+    .opening p {
+        font-size: 14px;
+    }
+
+    .wish {
+        font-size: 14px;
+        line-height: 1.9;
+    }
+
+    .from {
+        font-size: 18px;
+    }
+
+    button {
+        padding: 12px 24px;
     }
 }
 </style>
@@ -153,27 +214,43 @@ button:active {
 
 <body>
 
-<!-- OPENING -->
+<!-- =========================
+     OPENING
+========================= -->
+
 <section class="page active">
     <div class="card opening">
+
         <div class="heart">💗</div>
 
-        <h1>Here are some birthday wishes just for you 💌</h1>
+        <h1>
+            Here are some birthday wishes just for you 💌
+        </h1>
 
-        <p>Take a moment to read all the little wishes from everyone 🥹🌷</p>
+        <p>
+            Take a moment to read all the little wishes from everyone 🥹🌷
+        </p>
 
-        <button onclick="nextPage()">Tap to continue ♡</button>
+        <button onclick="nextPage()">
+            Tap to continue ♡
+        </button>
+
     </div>
 </section>
 
 
-<!-- 1 -->
+<!-- =========================
+     1
+========================= -->
+
 <section class="page">
-<div class="card">
+    <div class="card">
 
-<div class="from">From Saung Hnin Phyu 💌</div>
+        <div class="from">
+            From Saung Hnin Phyu 💌
+        </div>
 
-<div class="wish">Happy Birthday ပါ Eaint ရေ 🎂💗✨
+        <div class="wish">Happy Birthday ပါ Eaint ရေ 🎂💗✨
 
 မွေးနေ့ကစပြီး ကံကောင်းခြင်းတွေ၊ ပျော်ရွှင်ခြင်းတွေနဲ့ အမြဲပြည့်နေပါစေနော် 🥹🌷
 
@@ -185,19 +262,24 @@ Eaint လိုချင်တဲ့အရာတိုင်း ရရှိပ�
 
 Once again, Happy Birthday Eaint! 🎀🎂🤍</div>
 
-<button onclick="nextPage()">Tap to continue ♡</button>
+        <button onclick="nextPage()">Tap to continue ♡</button>
 
-</div>
+    </div>
 </section>
 
 
-<!-- 2 -->
+<!-- =========================
+     2
+========================= -->
+
 <section class="page">
-<div class="card">
+    <div class="card">
 
-<div class="from">From ino 💌</div>
+        <div class="from">
+            From ino 💌
+        </div>
 
-<div class="wish special">𝐇αρρ𝗒 ᑲ𝗂𝗋𝗍ɦᑯα𝗒 ρ𝗋 ᥒᥕᥕ 𝐌α𝐌α 𝐄α𝗂𐓣𝗍😔💕
+        <div class="wish special">𝐇αρρ𝗒 ᑲ𝗂𝗋𝗍ɦᑯα𝗒 ρ𝗋 ᥒᥕᥕ 𝐌α𝐌α 𝐄α𝗂𐓣𝗍😔💕
 
 အီနိုက နောက်မှရောက်လာတဲ့ new လေးဆိုတော့ မမအိမ့် မသိလောက်သေးဘူး ဒါမဲ့ မမအိမ့်ကို အီနိုအားကျတယ် edit လေးတွေ သဘောကျတယ် မမသဘောကောင်းမှန်း အီနိုအလိုလိုသိပါတယ်
 
@@ -211,19 +293,24 @@ Once again, Happy Birthday Eaint! 🎀🎂🤍</div>
 
 / ပွန်ဆာပတ်ရည်းစား အီနို /</div>
 
-<button onclick="nextPage()">Tap to continue ♡</button>
+        <button onclick="nextPage()">Tap to continue ♡</button>
 
-</div>
+    </div>
 </section>
 
 
-<!-- 3 -->
+<!-- =========================
+     3
+========================= -->
+
 <section class="page">
-<div class="card">
+    <div class="card">
 
-<div class="from">From Khinyuya Naing 💌</div>
+        <div class="from">
+            From Khinyuya Naing 💌
+        </div>
 
-<div class="wish">Happy Birthday မမအိမ့်ရေ 🎂🥳❤️
+        <div class="wish">Happy Birthday မမအိမ့်ရေ 🎂🥳❤️
 
 မွေးနေ့မှာ ပျော်ရွှင်စရာတွေအများကြီးရပါစေ။ မမလိုချင်တဲ့အရာတွေလည်း အမြန်ဆုံးရရှိပါစေ။ စိတ်ညစ်စရာတွေ၊ ဝမ်းနည်းစရာတွေထက် ရယ်မောပျော်ရွှင်ရတဲ့နေ့ရက်တွေပဲ ပိုများပါစေနော် 🥰
 
@@ -233,33 +320,43 @@ Once again, Happy Birthday Eaint! 🎀🎂🤍</div>
 
 Happy Birthday ပါ မမရေ 🫶🏻🎉</div>
 
-<button onclick="nextPage()">Tap to continue ♡</button>
+        <button onclick="nextPage()">Tap to continue ♡</button>
 
-</div>
+    </div>
 </section>
 
 
-<!-- 4 -->
+<!-- =========================
+     4
+========================= -->
+
 <section class="page">
-<div class="card">
+    <div class="card">
 
-<div class="from">From June 💌</div>
+        <div class="from">
+            From June 💌
+        </div>
 
-<div class="wish">မမအိမ့်ကိုစစကားပြောဖြစ်စသိတာ‌တော့မကြာသေးဘူးမမအိမ့်ကို tataပုံအ‌ကြောင်းမေးရင်စသိပြီတော့ နောက်channel ကိုမှားထွက်မိလို့ banခံထိလို့ပြန်ဂျိုင်းလို့ရ‌အောင်ကူညီ‌ပေးတဲ့တွက်လဲကျေးဇူးများကြီးပါတယ် မမအိမ့်အကြောင်းဟိုလိုသေသေချာချာရယ်ရီးတော့မသိပေးမဲ့ လာမဲ့မွေးနေ့မှ ကိုယ်ထင်သလာလို အကုန်ဖြစ်လာပြီ လိုအပ်ဆန္ဓတွေလဲပြည့်ဝပြီ နောက်ဖြစ်လာမဲ့ကိစ္စကောင်းသည်ဖြစ်စေမကောင်းသည်ဖြစ်စေ ဖြစ်လာသမျှအရာအားလုံးကိုသေသေချာချာကိုင်တွယ်နိုင်ပြီ ကျန်းကျန်းမားမားချမ်းချမ်းသားသားနဲ့ဘဝကြီးကိုဖြတ်သန်းနိုင်ပါစေလို့ဆုမွန်ကောင်းတောင်းပေးလိုက်ပါတယ်🥹❤️</div>
+        <div class="wish">မမအိမ့်ကိုစစကားပြောဖြစ်စသိတာ‌တော့မကြာသေးဘူးမမအိမ့်ကို tataပုံအ‌ကြောင်းမေးရင်စသိပြီတော့ နောက်channel ကိုမှားထွက်မိလို့ banခံထိလို့ပြန်ဂျိုင်းလို့ရ‌အောင်ကူညီ‌ပေးတဲ့တွက်လဲကျေးဇူးများကြီးပါတယ် မမအိမ့်အကြောင်းဟိုလိုသေသေချာချာရယ်ရီးတော့မသိပေးမဲ့ လာမဲ့မွေးနေ့မှ ကိုယ်ထင်သလာလို အကုန်ဖြစ်လာပြီ လိုအပ်ဆန္ဓတွေလဲပြည့်ဝပြီ နောက်ဖြစ်လာမဲ့ကိစ္စကောင်းသည်ဖြစ်စေမကောင်းသည်ဖြစ်စေ ဖြစ်လာသမျှအရာအားလုံးကိုသေသေချာချာကိုင်တွယ်နိုင်ပြီ ကျန်းကျန်းမားမားချမ်းချမ်းသားသားနဲ့ဘဝကြီးကိုဖြတ်သန်းနိုင်ပါစေလို့ဆုမွန်ကောင်းတောင်းပေးလိုက်ပါတယ်🥹❤️</div>
 
-<button onclick="nextPage()">Tap to continue ♡</button>
+        <button onclick="nextPage()">Tap to continue ♡</button>
 
-</div>
+    </div>
 </section>
 
 
-<!-- 5 -->
+<!-- =========================
+     5
+========================= -->
+
 <section class="page">
-<div class="card">
+    <div class="card">
 
-<div class="from">From Tar 💌</div>
+        <div class="from">
+            From Tar 💌
+        </div>
 
-<div class="wish">မွေးနေ့မှစပြီး စိတ်၏ချမ်းသာခြင်း၊ ကိုယ်၏ကျန်းမာခြင်းနဲ့ ပြည့်စုံပါစေနော်။၁၉ နှစ်တောင် ပြည့်သွားပြီဆိုတော့ တဖြည်းဖြည်းအသက် ကြီးလာပြီပေါ့။
+        <div class="wish">မွေးနေ့မှစပြီး စိတ်၏ချမ်းသာခြင်း၊ ကိုယ်၏ကျန်းမာခြင်းနဲ့ ပြည့်စုံပါစေနော်။၁၉ နှစ်တောင် ပြည့်သွားပြီဆိုတော့ တဖြည်းဖြည်းအသက် ကြီးလာပြီပေါ့။
 
 မမအိမ့်ဖြစ်ချင်တဲ့ အိမ်မက်တွေ၊ ရည်မှန်းချက်တွေအကုန်လုံး ဒီနှစ်မှာ တကယ်ဖြစ်လာပါစေ။ ဘာပဲလုပ်လုပ် အဆင်ပြေပြေနဲ့ အောင်မြင်ပါစေလို့ ဆုတောင်းပေးပါတယ်။
 
@@ -275,19 +372,24 @@ Happy 19th Birthday ပါရှင် 🤍🎂
 
 အမွှေလေးနဲ့မြန်''ညားပါစေ ဆုတောင်းမပြည့်မာစိုးလို့နှစ်ခါပြန်ကိုတောင်းပေးတာနော် ဟီးးးးးအာဘွားပါရှင် မွေးနေ့မှာအများကြီးပျော်ရွှင်ရပါစေ 🤍💞</div>
 
-<button onclick="nextPage()">Tap to continue ♡</button>
+        <button onclick="nextPage()">Tap to continue ♡</button>
 
-</div>
+    </div>
 </section>
 
 
-<!-- 6 -->
+<!-- =========================
+     6
+========================= -->
+
 <section class="page">
-<div class="card">
+    <div class="card">
 
-<div class="from">From Yoon 💌</div>
+        <div class="from">
+            From Yoon 💌
+        </div>
 
-<div class="wish">Happy Birthday ပါ အိမ့်ရေ 🎂🎀💗
+        <div class="wish">Happy Birthday ပါ အိမ့်ရေ 🎂🎀💗
 
 မွေးနေ့မှစပြီး ပျော်ရွှင်ခြင်း၊ ကံကောင်းခြင်းတွေနဲ့ ပြည့်နေပါစေ။ လိုချင်တဲ့အရာတိုင်းလည်း ပြည့်စုံပါစေနော် 🫶🏻✨
 
@@ -295,113 +397,148 @@ Happy 19th Birthday ပါရှင် 🤍🎂
 
 Happy Birthday BL fan girl လေးရေ 🎉🎂🌷</div>
 
-<button onclick="nextPage()">Tap to continue ♡</button>
+        <button onclick="nextPage()">Tap to continue ♡</button>
 
-</div>
+    </div>
 </section>
 
 
-<!-- 7 -->
+<!-- =========================
+     7
+========================= -->
+
 <section class="page">
-<div class="card">
+    <div class="card">
 
-<div class="from">From Yuri Tanapongsapak 💌</div>
+        <div class="from">
+            From Yuri Tanapongsapak 💌
+        </div>
 
-<div class="wish">🎉Happy birthdayပါမမအိမ့်ရေ🥳💯 ဒီမွေးနေ့ကစပြီးအမြဲတမ်းပျော်ရွှင်မှုတွေနဲ့ဘဲပြည့်နေပါစေနော်🍀 အမြဲတမ်းဂိမ်းတွေဆော့ပေး ဟာသတွေပြောပြီးပျော်အောင်ထားပေးတဲ့အတွက်လည်းကျေးဇူးပါရှင့်💐 ဒီထက်မကလည်းချစ်ဖို့ကောင်းနိုင်ပါ‌စေ🎀🧸 ရှေ့လျှောက်စိတ်ချမ်းသာကိုယ်ကျန်းမာပြီး သားတွေရဲ့updateတွေကိုအချိန်တွေအကြာကြီးလိုက်ပေးနိုင်ပါစေ😭🖤🤍 စိတ်ညစ်စရာတွေကင်းဝေးပြီးဘဝနဲ့ဆန္ဒတစ်ထပ်တည်းကျနိုင်ပါစေနော်💝💯 ကိုယ်တို့အားလုံးကမမအိမ့်ကိုအများကြီးချစ်ပါတယ်လို့🤭🫶🤍</div>
+        <div class="wish">🎉Happy birthdayပါမမအိမ့်ရေ🥳💯 ဒီမွေးနေ့ကစပြီးအမြဲတမ်းပျော်ရွှင်မှုတွေနဲ့ဘဲပြည့်နေပါစေနော်🍀 အမြဲတမ်းဂိမ်းတွေဆော့ပေး ဟာသတွေပြောပြီးပျော်အောင်ထားပေးတဲ့အတွက်လည်းကျေးဇူးပါရှင့်💐 ဒီထက်မကလည်းချစ်ဖို့ကောင်းနိုင်ပါ‌စေ🎀🧸 ရှေ့လျှောက်စိတ်ချမ်းသာကိုယ်ကျန်းမာပြီး သားတွေရဲ့updateတွေကိုအချိန်တွေအကြာကြီးလိုက်ပေးနိုင်ပါစေ😭🖤🤍 စိတ်ညစ်စရာတွေကင်းဝေးပြီးဘဝနဲ့ဆန္ဒတစ်ထပ်တည်းကျနိုင်ပါစေနော်💝💯 ကိုယ်တို့အားလုံးကမမအိမ့်ကိုအများကြီးချစ်ပါတယ်လို့🤭🫶🤍</div>
 
-<button onclick="nextPage()">Tap to continue ♡</button>
+        <button onclick="nextPage()">Tap to continue ♡</button>
 
-</div>
+    </div>
 </section>
 
 
-<!-- 8 -->
+<!-- =========================
+     8
+========================= -->
+
 <section class="page">
-<div class="card">
+    <div class="card">
 
-<div class="from">From Ri 💌</div>
+        <div class="from">
+            From Ri 💌
+        </div>
 
-<div class="wish special">Happy birthdayပါ မင်အိမ့်ရေ 💗
+        <div class="wish special">Happy birthdayပါ မင်အိမ့်ရေ 💗
 
 ရည်းစားကိုသဝန်တိုတာလေးတေ လျော့ပေးပါ 😭😂</div>
 
-<button onclick="nextPage()">Tap to continue ♡</button>
+        <button onclick="nextPage()">Tap to continue ♡</button>
 
-</div>
+    </div>
 </section>
 
 
-<!-- 9 -->
+<!-- =========================
+     9
+========================= -->
+
 <section class="page">
-<div class="card">
+    <div class="card">
 
-<div class="from">From Kim_Tanapak 💌</div>
+        <div class="from">
+            From Kim_Tanapak 💌
+        </div>
 
-<div class="wish">Happy Birthday ပါကြီးတော်။မွှေစိန်နဲ့အကြာကြီးဆက်ပြီးအတူရှိသွားနိုင်ပါစေ။PerthSantaနဲ့လည်းသွားတွေ့နိုင်ပါစေရှင့်။Gpကိုလဲအကြာကြီးဆက်runပေးပါအုံး🙂‍↔️🫶</div>
+        <div class="wish">Happy Birthday ပါကြီးတော်။မွှေစိန်နဲ့အကြာကြီးဆက်ပြီးအတူရှိသွားနိုင်ပါစေ။PerthSantaနဲ့လည်းသွားတွေ့နိုင်ပါစေရှင့်။Gpကိုလဲအကြာကြီးဆက်runပေးပါအုံး🙂‍↔️🫶</div>
 
-<button onclick="nextPage()">Tap to continue ♡</button>
+        <button onclick="nextPage()">Tap to continue ♡</button>
 
-</div>
+    </div>
 </section>
 
 
-<!-- 10 -->
+<!-- =========================
+     10
+========================= -->
+
 <section class="page">
-<div class="card">
+    <div class="card">
 
-<div class="from">From Julie 💌</div>
+        <div class="from">
+            From Julie 💌
+        </div>
 
-<div class="wish">Happy Birthday Pr Ma"Eaint 🎉🎂
+        <div class="wish">Happy Birthday Pr Ma"Eaint 🎉🎂
 
 19နှစ်ပြည့်မွေးနေ့မှစပြီး နောင်လာမဲ့နေ့ရက်တွေတိုင်းမှာ ပျော်ရွှင်ခြင်းတွေ ကျန်းမာခြင်းတွေ အောင်မြင်ခြင်းတွေနဲ့ပြည့်စုံပါစေနော်။မမအိမ့် စိတ်ကူးထားတဲ့ မျှော်လင့်ထားတဲ့ ရှေ့ဆက်လျှောက်လှမ်းမယ့် အိပ်မက်တွေ ရည်မှန်းချက်ပန်းတိုင်တွေ အားလုံးကိုလည်း ဘယ်လို အခက်အခဲမှမရှိဘဲ ချောချောမွေ့မွေ့နဲ့ အမြန်ဆုံး အကောင်အထည်ဖော်နိုင် အောင်မြင်ပါစေ။ဘယ်ချိန်ပဲဖြစ်ဖြစ်ကိုယ့်ဘေးမှာနွေးနွေးထွေးထွေးရှိပေးမဲ့သူတွေနဲ့ပဲတွေ့ဆုံပါစေ။ကိုယ့်ရဲ့Idolတွေနဲ့လဲအပြင်မှာတွေ့နိုင်ပါစေနော်။လူပင်ပန်းစိတ်ပင်ပန်းဖြစ်ရတဲ့ ရက်တွေကင်းဝေးပြီး စိတ်ချမ်းသာ ကိုယ်ကျန်းမာနဲ့ အိပ်မက်တွေကို စိတ်ကြိုက် အကောင်အထည်ဖော်နိုင်ပါစေနော်။မမအိမ့်နဲ့chထဲမှာသိတာဆိုပင်မဲ့မမအိမ့်ကတကယ်ခင်ဖို့ကောင်းတယ်သိလား မမအိမ့်တို့နဲ့စကားပြောရတာတကယ်ပျော်ဖို့ကောင်းတာနော် မမအိမ့်နေ့ရက်တိုင်းမှာပျော်ရွှင်ဖို့​မျှော်လင့်ပါတယ်နော် ကိုယ်တကယ်ချစ်ရမြတ်နိုးရတဲ့သူနဲ့လဲပေါင်းဖက်နိုင်ပါစေ​လို့ဆုတောင်းပေးလိုက်ပါတယ်နော်မမအိမ့်ရေ..💕✨ {HBD na jaa🍓}
 
 From Julie..⋆𐙚₊˚⊹♡</div>
 
-<button onclick="nextPage()">Tap to continue ♡</button>
+        <button onclick="nextPage()">Tap to continue ♡</button>
 
-</div>
+    </div>
 </section>
 
 
-<!-- 11 -->
+<!-- =========================
+     11
+========================= -->
+
 <section class="page">
-<div class="card">
+    <div class="card">
 
-<div class="from">From Xue'er 💌</div>
+        <div class="from">
+            From Xue'er 💌
+        </div>
 
-<div class="wish">𝓦𝓲𝓼𝓱𝓲𝓷𝓰 𝔂𝓸𝓾 𝓪 𝓿𝓮𝓻𝔂 𝓱𝓪𝓹𝓹𝔂 𝓮𝓷𝓭𝓵𝓮𝓼𝓼 𝓫𝓲𝓻𝓽𝓱𝓭𝓪𝔂!...💞🍂
+        <div class="wish">𝓦𝓲𝓼𝓱𝓲𝓷𝓰 𝔂𝓸𝓾 𝓪 𝓿𝓮𝓻𝔂 𝓱𝓪𝓹𝓹𝔂 𝓮𝓷𝓭𝓵𝓮𝓼𝓼 𝓫𝓲𝓻𝓽𝓱𝓭𝓪𝔂!...💞🍂
 
 မွေးနေ့မှာ စိတ်၏ချမ်းသာခြင်း၊ ကိုယ်၏ကျန်းမာခြင်းနဲ့တကွ လိုအဆန္ဒတွေအားလုံး... တစ်လုံးတစ်ဝတည်း ပြည့်ဝကြွယ်ဝပါစေရှင်...💐လာမယ့်နှစ်တွေအားလုံးမှာ အောင်မြင်မှုတွေ...၊ ပျော်ရွှင်မှုတွေနဲ့ နေ့ရက်တိုင်းကို တောက်ပစွာ ဖြတ်သန်းနိုင်ပါစေရှင်။...🎂✨ဘဝတ‌လျှာက်လုံးမှာလည်းအလှတရားတွေနဲ့ အောင်မြင်မှုတွေ အမြဲပိုင်ဆိုင်နိုင်ပါစေ....💫🫶🏻
 
 "မမအမွှေစိန်နဲ့ညားရင် သမီးကိုဖိတ်ဖို့ မမေ့ကြပါနဲ့...😔✨"</div>
 
-<button onclick="nextPage()">Tap to continue ♡</button>
+        <button onclick="nextPage()">Tap to continue ♡</button>
 
-</div>
+    </div>
 </section>
 
 
-<!-- 12 -->
+<!-- =========================
+     12
+========================= -->
+
 <section class="page">
-<div class="card">
+    <div class="card">
 
-<div class="from">From EISANTY 💌</div>
+        <div class="from">
+            From EISANTY 💌
+        </div>
 
-<div class="wish">ဟက်ဗီးဘတ်ဒေးပါနော်မင်အိမ့်🎂🎀ဒီနေ့ကျရောက်တဲ့မွေးနေ့ကစပြီးအရာအားလုံးးအဆင်ပြေပါစေနော် မင့်အိမ်လိုချင်တာမှန်သမျှလည်းမတောင်းတဘဲရပါစေနော်။ကိုယ်ချစ်တဲ့သူနဲ့လည်းအကြာကြီးချစ်နိုင်ပါစေနော် မွေးနေ့ကစပြီးမကောင်းတဲ့အရာမှန်သမျှကင်းဝေးပြီးကောင်းတဲ့လူတွေ ပတ်ဝန်းကျင်တွေနဲ့ဘဲ တွေ့ဆုံနိုင်ပါစေနော် မင့်အိမ်လုပ်ချင်တာမှန်သမျှလည်းလုပ်ခွင့်ရပါစေနော် ကလေးလေးတွေကိုလည်းအများကြီးsupportပေးနိုင်ပါစေလို့ ဆုတောင်းပေးလိုက်ပါတယ်နော်💓🫶🤟 သိခွင့်ရတာသိပ်မကြာသေး‌ပေမဲ့အများကြီးခင်ပါတယ်နော်</div>
+        <div class="wish">ဟက်ဗီးဘတ်ဒေးပါနော်မင်အိမ့်🎂🎀ဒီနေ့ကျရောက်တဲ့မွေးနေ့ကစပြီးအရာအားလုံးးအဆင်ပြေပါစေနော် မင့်အိမ်လိုချင်တာမှန်သမျှလည်းမတောင်းတဘဲရပါစေနော်။ကိုယ်ချစ်တဲ့သူနဲ့လည်းအကြာကြီးချစ်နိုင်ပါစေနော် မွေးနေ့ကစပြီးမကောင်းတဲ့အရာမှန်သမျှကင်းဝေးပြီးကောင်းတဲ့လူတွေ ပတ်ဝန်းကျင်တွေနဲ့ဘဲ တွေ့ဆုံနိုင်ပါစေနော် မင့်အိမ်လုပ်ချင်တာမှန်သမျှလည်းလုပ်ခွင့်ရပါစေနော် ကလေးလေးတွေကိုလည်းအများကြီးsupportပေးနိုင်ပါစေလို့ ဆုတောင်းပေးလိုက်ပါတယ်နော်💓🫶🤟 သိခွင့်ရတာသိပ်မကြာသေး‌ပေမဲ့အများကြီးခင်ပါတယ်နော်</div>
 
-<button onclick="nextPage()">Tap to continue ♡</button>
+        <button onclick="nextPage()">Tap to continue ♡</button>
 
-</div>
+    </div>
 </section>
 
 
-<!-- 13 -->
+<!-- =========================
+     13
+========================= -->
+
 <section class="page">
-<div class="card">
+    <div class="card">
 
-<div class="from">From Kyal Sin Nyein Chan 💌</div>
+        <div class="from">
+            From Kyal Sin Nyein Chan 💌
+        </div>
 
-<div class="wish">Happy birthday kha
+        <div class="wish">Happy birthday kha
       mama Eaint (⁠ ˘⁠ ³⁠˘⁠)⁠♥
 
 Perthsanta universe မှာစသိတဲ့ မမအိမ့်...
@@ -416,23 +553,113 @@ Love you kha🌎🫶🏻
 
 #from little devil ❤️ 😈</div>
 
-<button onclick="nextPage()">Tap to continue ♡</button>
+        <button onclick="nextPage()">Tap to continue ♡</button>
 
-</div>
+    </div>
 </section>
 
 
-<!-- LAST WISH -->
+<!-- =========================
+     FINAL
+========================= -->
+
 <section class="page">
-<div class="card">
+    <div class="card">
 
-<div class="from">From ပေါက်စ 🤍</div>
+        <div class="heart">🤍</div>
 
-<div class="wish final">မမ ချစ်တယ် 🥹🤍
+        <div class="from">
+            From ပေါက်စ 🤍
+        </div>
 
-အာဘွား 💋
+        <div class="wish final">မမ 
+
+အာဘွား 
 
 HBD again 🤍</div>
 
-</div>
+    </div>
 </section>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+let currentPage = 0;
+
+const pages = document.querySelectorAll(".page");
+
+
+function nextPage() {
+
+    // လက်ရှိ page ကိုဖျောက်
+    pages[currentPage].classList.remove("active");
+
+    // နောက် page ကိုသွား
+    currentPage++;
+
+    // နောက်ဆုံး page ရောက်ပြီးရင် ဒီမှာပဲရပ်
+    if (currentPage >= pages.length) {
+        currentPage = pages.length - 1;
+    }
+
+    // နောက် page ကိုပြ
+    pages[currentPage].classList.add("active");
+
+    // စာမျက်နှာအပေါ်ဆုံးကိုပြန်တက်
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth"
+    });
+}
+
+
+/* Floating hearts */
+
+const heartList = [
+    "💗",
+    "💖",
+    "💕",
+    "💞",
+    "🤍",
+    "🌷",
+    "✨"
+];
+
+function createHeart() {
+
+    const heart = document.createElement("div");
+
+    heart.className = "floating";
+
+    heart.innerText =
+        heartList[
+            Math.floor(Math.random() * heartList.length)
+        ];
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+    heart.style.fontSize =
+        (14 + Math.random() * 12) + "px";
+
+    heart.style.animationDuration =
+        (5 + Math.random() * 3) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(function() {
+        heart.remove();
+    }, 9000);
+}
+
+setInterval(createHeart, 900);
+
+</script>
+
+</body>
+</html>
